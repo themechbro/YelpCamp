@@ -1,4 +1,4 @@
-//jKE0L6XtkzzYe6dE
+
 if(process.env.NODE_ENV !== 'production'){
     require('dotenv').config();
 }
@@ -10,7 +10,7 @@ const path =require('path');
 const joi= require('joi');
 const ejsMate=require('ejs-mate');
 const ExpressError= require('./utilis/expresserror');
-const dbUrl=   'mongodb://127.0.0.1:27017/yelp-camp'      //process.env.DB_URL
+const dbUrl=process.env.DB_URL;
 const mongoose= require('mongoose');
 const session= require('express-session');
 const MongoStore = require('connect-mongo')(session);
