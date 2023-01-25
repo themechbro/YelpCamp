@@ -1,0 +1,35 @@
+<%- layout('layout/boilerplate.ejs') -%> 
+<div id="cluster-map"></div>
+    <h1 class="display-5">All Campgrounds</h1>
+      <a href="/campgrounds/new" class="btn btn-success mt-3 mb-3">Create a new Camp</a>
+    
+        <% for (let camp of camps){ %>
+          <div class="card mb-3 shadow-lg rounded">
+            <div class="row">
+              <div class="col-md-4">
+                <%  if(camp.image.length) {%>
+                 <img class='img-fluid' src="<%= camp.image[0].url %> " alt=""> 
+                 <%}%>
+               
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5> <%= camp.title %> </h5>
+                  <p class="card-text"> <%=camp.description  %> </p>
+                  <p class="card-text"> <span class="text-muted">
+                    <%=camp.location  %>
+                  </span> </p>
+<a class="btn btn-primary" href="/campgrounds/<%=camp.id %>">View <%= camp.title %> </a>
+
+                </div>
+              </div>
+            </div>
+          </div>  
+
+        <% } %> 
+    
+<script>
+const campground= {features :<%- JSON.stringify(camps) %>} ;
+</script>
+
+<script src="/javascripts/indexpageMap.js"></script>
