@@ -11,7 +11,7 @@ const user= new User({email, username}); // this is used to create mongo model, 
 const registerUser= await User.register(user, password);// this line of code is used to hash password using passport and not by using bcrypt.
 req.login(registerUser, err =>{     //req.login is used to directly login to account after registration
     if(err) return next(err);
-    req.flash('success','Welcome to YelpCamp!');
+    req.flash('success','Welcome to YelpCamp, your account was successfully created.');
 res.redirect('/campgrounds');
 })
 
